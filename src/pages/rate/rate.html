@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+    <h5>  {{itemName}}</h5>
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+<ion-content padding>
+  
+
+<!--rate-->
+  <rating [(ngModel)]="rate" max="5" emptyStarIconName="star-outline"  halfStarIconName="star-half"     starIconName="star"  nullable="false"  (ngModelChange)="onModelChange($event)">
+  </rating>
+  
+    <button ion-button (click)="SaveRate(RateInfo)">ارسال التقيم</button>
+
+
+<br>
+<br>
+
+<button ion-button [disabled]="disabled" (click)="printRateNubmer() "(click)="disButton()"(click)="showDiv()"> تقيمات هذه المركز </button>
+<div *ngIf ="hideMe">
+
+
+
+  <h1> {{rateNumber.ratePercent}}  </h1>   
+
+  <ion-icon name="person">{{rateNumber.rPersonNumber}}</ion-icon>
+<h3> *****  --> {{rateNumber.r5}} مرات </h3>
+<h3> ****   --> {{rateNumber.r4}} مرات </h3>
+<h3> ***    --> {{rateNumber.r3}} مرات </h3>
+<h3> **     --> {{rateNumber.r2}} مرات </h3>
+<h3> *      --> {{rateNumber.r1}} مرات </h3>
+</div>
+
+
+
+</ion-content>
